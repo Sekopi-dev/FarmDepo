@@ -1,0 +1,13 @@
+/* static/src/input.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text{
+ color: greenyellow;
+}
+
+h2{
+    color: greenyellow;
+}

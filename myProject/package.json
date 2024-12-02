@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "flowbite": "^2.5.2",
+    "postcss": "^8.4.47"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./static/css/styles.css -o ./static/css/tailwind.css --watch"
+  }
+}

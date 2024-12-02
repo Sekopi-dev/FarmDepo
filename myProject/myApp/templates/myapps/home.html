@@ -1,0 +1,331 @@
+{% extends "myapps/_base.html" %}
+
+{% block content %}
+
+<nav class="bg-gray-300 border-gray-600 dark:bg-gray-900 nvbar">
+    
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+
+          <span class="self-center text-3xl font-semibold whitespace-nowrap text-green-600 dark:text-white">Farm<i class="bi bi-boxes"></i>Depo</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About us</a>
+          </li>
+          <li>
+            <a href="{% url 'myaccount' %}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">My Account</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Promotions</a>
+          </li>
+         
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{%url 'logout' %}" class="btn btn-outline-dark block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a  href="{%url 'login' %}" class="btn btn-outline-success block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+          </li>
+          <li>
+            <a  href="{%url 'register' %}" class="btn btn-dark block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">New Account</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+</nav> 
+{% endblock content %}
+
+{% block imgcaro %} 
+<div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-52 overflow-hidden rounded-lg md:h-96 img-carosel">
+        <!-- Item 1 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <!-- Overlay Container for h1 and button -->
+            <div class="overlay-content">
+                <h1>Equip Your Farm for Success</h1>
+                <h4>Discover top-quality farming equipment and machinery</h4>
+                <button onclick="scrollToSect('section1')" class="btn btn-primary">Shop Now <i class="bi bi-caret-right"></i> </button>
+            </div>
+            <img src="./static/img/img (1).jpg" class="absolute w-full h-full object-cover" alt="">
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <div class="overlay-content">
+                <h1>Equip Your Farm for Success</h1>
+                <h4>Discover top-quality farming equipment and machinery</h4>
+                <button onclick="scrollToSect('section1')" class="btn btn-primary ">Shop Now <i class="bi bi-caret-right"></i></button>
+            </div> 
+            <img src="./static/img/img (2).jpg" class="absolute w-full h-full object-cover" alt="">
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="overlay-content">
+                <h1>Equip Your Farm for Success</h1>
+                <h4>Discover top-quality farming equipment and machinery</h4>
+                <button onclick="scrollToSect('section1')" class="btn btn-primary">Shop Now <i class="bi bi-caret-right"></i> </button>
+            </div>
+            <img src="./static/img/img (3).jpg" class="absolute w-full h-full object-cover" alt="">
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="overlay-content">
+                <h1>Equip Your Farm for Success</h1>
+                <h4>Discover top-quality farming equipment and machinery</h4>
+                <button onclick="scrollToSect('section1')" class="btn btn-primary">Shop Now <i class="bi bi-caret-right"></i> </button>
+            </div>
+            <img src="./static/img/img (5).jpg" class="absolute w-full h-full object-cover" alt="">
+        </div>
+        <!-- Item 5 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="overlay-content">
+                <h1>Equip Your Farm for Success</h1>
+                <h4>Discover top-quality farming equipment and machinery</h4>
+                <button onclick="scrollToSect('section1')" class="btn btn-primary">Shop Now <i class="bi bi-caret-right"></i> </button>
+            </div>
+            <img src="./static/img/img (6).jpg" class="absolute w-full h-full object-cover" alt="">
+        </div>
+    </div>
+ </div>
+</div>  
+{% endblock imgcaro %}
+
+
+
+{% block productDisp %}
+
+{% for product in page_obj %}
+    <div class="product_card">
+        <a class="text-decoration-none" href="{% url 'product' product.id %}">
+            <div class="product_card_card">
+                {% if product.is_sale %}
+                    {# <div class="sale_badge">Sale</div> #}
+                {% endif %}
+                
+                <img src="{{ product.image.url }}" class="product_image" alt="Product Image">
+                
+                <div class="product_card_body">
+                    <span class="product_badge">{{ product.category }}</span>
+                    <h5 class="product_name">{{ product.name }}</h5>
+                    
+                    <div class="price_section">
+                        {% if product.is_sale %}
+                            <div class="price_cont ">
+                                <span class="original_price">R{{ product.price }}</span>
+                                <span class="sale_price">R{{ product.sale_price }}</span>
+                            </div>
+                        {% else %}
+                            <span class="normal_price">R{{ product.price }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <a href="{% url 'product' product.id %}" class="add_to_cart">View Product</a>
+                </div>
+            </div>
+        </a>
+    </div>
+{% empty %}
+    <p>No products available.</p>
+{% endfor %}
+
+<br/>
+<br/>
+<!-- Pagination Controls -->
+
+
+{% endblock productDisp %}
+
+
+
+
+
+
+{% block footer%}
+
+<footer class="product_footer ">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="/" class="hover:underline">FarmDepo</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">About</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+        </li>
+        <li>
+            <a href="#" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+    <div class="social_bar">
+        <ul>
+            <li class="scoial_icon"><a href="https://www.facebook.com/"><i class="bi bi-facebook"> </i> </a> </li>
+            <li class="scoial_icon"><a href="https://www.threads.net/?hl=en"><i class="bi bi-whatsapp"></i></a></li>
+            <li class="scoial_icon"><a href="https://www.threads.net/?hl=en"><i class="bi bi-threads-fill"></a></i></li>
+            <li class="scoial_icon"><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a></li>
+            <li class="scoial_icon"><a href="https://x.com/?lang=en"><i class="bi bi-twitter"></i></a></li>
+        </ul>
+    </div>
+    </div>
+</footer>
+
+{% endblock footer%}
+
+<link rel="stylesheet" href="/static/admin/css/dark_mode.css">
+
+{% block category %}
+<div id="controls-carousel" class="featured_cat w-full" data-carousel="static">
+    <div class="container relative overflow-hidden rounded-lg w-full">
+        <h3 class="featured_cat_title">Featured Categories</h3>
+        <div class="featured_cat_wrapper" data-carousel-inner>
+            <!-- Category Item 1 -->
+            <div class="featured_cat_item">
+                <div class="card_cate">
+                    <i class="bi bi-tags-fill"></i>
+                    <p>Half Price Super Sale</p>
+                </div>
+            </div>
+            <!-- Category Item 2 -->
+            <div class="featured_cat_item">
+                <div class="card_cate">
+                    <i class="bi bi-123"></i>
+                    <p>Buy 2 Get 1 FREE</p>
+                </div>
+            </div>
+            <!-- Category Item 3 -->
+            <div class="featured_cat_item">
+                <div class="card_cate">
+                    <i class="bi bi-basket"></i>
+                    <p>Clearance Sale</p>
+                </div>
+            </div>
+            <!-- Additional Items... -->
+        </div>
+    </div>
+</div>
+{% endblock category %}
+
+
+{% block shop_by_cate %}
+<div class="shop_by_category_section">
+    {% for category in category %}
+        <div class="lastest_text">
+        <a href="{% url 'category' category.id %}" class="" ><h4 class="">{{category.name}}</h4></a>
+       </div>
+       <div class="products_row">
+        {% for product in category.product_set.all|slice:":5" %}
+        
+        <div class="product_card"><a class="text-decoration-none" href="{% url 'product' product.id %}  " > 
+
+     
+            <div class="product_card_card">
+               
+                
+                {% if product.is_sale %}
+                {% comment %} <div class="sale_badge">Sale</div> {% endcomment %}
+               
+                {% endif %}
+                
+                <img src="{{ product.image.url }}" class="product_image" alt="Product Image">
+                
+                <div class="product_card_body">
+                   
+                    <span class="product_badge">{{ product.category }}</span>
+                    <h5 class="product_name text-lg ">{{ product.name }}</h5>
+                    
+                    <div class="price_section">
+                        {% if product.is_sale %}
+                       <div class="price_cont ">
+                        <span class="original_price text-sm">R{{ product.price }}</span>
+                        <span class="sale_price text-lg">R{{ product.sale_price }}</span>     
+                       </div>
+                        {% else %}
+                        <span class="normal_price text-lg">R{{ product.price }}</span>
+                        {% endif %}
+                    
+                    </div> 
+                         
+                </div>
+           
+            </div>
+        
+        </a></div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock shop_by_cate %}
+
+{% block whyChoose %}
+
+<div class="container">
+    <div class="shop_by_cate ">
+        <h2>Why Choose Us?</h2>
+    <h5 class="section-description">
+        We are committed to providing the best farming machinery and equipment with unbeatable customer service and product quality.
+    </h5>
+    </div>
+
+    <div class="why-card-grid">
+        <!-- Card 1 -->
+        <div class="why_card">
+            <div class="icon">🚜</div>
+            <h3>Quality Machinery</h3>
+            <p>Our machinery is sourced from top brands and tested for quality to ensure lasting performance.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why_card">
+            <div class="icon">🌱</div>
+            <h3>Eco-Friendly Solutions</h3>
+            <p>We offer environmentally friendly machinery options to support sustainable farming practices.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why_card">
+            <div class="icon">🔧</div>
+            <h3>Full Support & Training</h3>
+            <p>Our team provides setup assistance and training so you can get the most from your equipment.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="why_card">
+            <div class="icon">🚚</div>
+            <h3>Fast & Reliable Delivery</h3>
+            <p>Our logistics team ensures timely delivery so you can get your equipment when you need it.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="why_card">
+            <div class="icon">⭐</div>
+            <h3>Customer Satisfaction</h3>
+            <p>Our customers are at the heart of our business, and we strive to exceed expectations in every sale.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="why_card">
+            <div class="icon">💬</div>
+            <h3>24/7 Customer Support</h3>
+            <p>We're here to help at any time with dedicated support for all your questions and concerns.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock whyChoose %}
+
+
+
