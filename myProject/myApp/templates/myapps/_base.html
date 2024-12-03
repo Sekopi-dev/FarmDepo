@@ -478,8 +478,96 @@
         document.getElementById(sectid).scrollIntoView({behavior: 'smooth'});
         console.log('Process complete');
     }
-  </script>   
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-  <script src="//code.tidio.co/k4vmiu3isogcqrsqyqao3xtti9yd0tze.js" async></script>
-</body>
+  </script>
+
+  {% comment %}
+
+          <script>
+            document.getElementById('chat-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form from refreshing the page
+
+                const input = document.getElementById('chat-input');
+                const message = input.value;
+                input.value = ''; // Clear input field
+
+                // Display user's message in chatbox
+                const chatbox = document.getElementById('chatbox');
+                chatbox.innerHTML += `<div class="message user"><strong>You:</strong> ${message}</div>`;
+
+                // Send message to Django view via AJAX
+                fetch("{% url 'chatbot_view' %}", {
+                    method: "POST",
+                    headers: {
+                        "X-CSRFToken": "{{ csrf_token }}",
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        message: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display bot's response in chatbox
+                    chatbox.innerHTML += `<div class="message bot"><strong>Bot:</strong> ${data.response}</div>`;
+                    chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+                })
+                .catch(error => {
+                    chatbox.innerHTML += `<div class="message bot"><strong>Bot:</strong> Error connecting to chatbot service.</div>`;
+                });
+            });
+        </script> {% endcomment %}
+
+        <script>
+          const chatIcon = document.getElementById('chatbot-icon');
+          const chatWindow = document.getElementById('chat-window');
+          const chatMessages = document.getElementById('chat-messages');
+          const chatInput = document.getElementById('chat-message-input');
+          const sendButton = document.getElementById('chat-send-button');
+  
+          // Toggle chat window visibility
+          chatIcon.addEventListener('click', () => {
+              chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
+          });
+  
+          // Send message to Flask /predict endpoint
+          function sendMessage() {
+              const message = chatInput.value;
+              if (!message) return;
+  
+              // Add user's message to chat window
+              chatMessages.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+              chatInput.value = '';
+  
+              // Send request to Flask backend
+              fetch('http://127.0.0.1:5000/predict', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ message: message }),
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      const botResponse = data.answer;
+                      chatMessages.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+                      chatMessages.scrollTop = chatMessages.scrollHeight;
+                  })
+                  .catch(error => {
+                      chatMessages.innerHTML += `<div><strong>Bot:</strong> Error connecting to chatbot service.</div>`;
+                  });
+          }
+  
+          // Send message on button click or Enter key
+          sendButton.addEventListener('click', sendMessage);
+          chatInput.addEventListener('keypress', (e) => {
+              if (e.key === 'Enter') {
+                  sendMessage();
+              }
+          });
+      </script>
+
+  <script src="{% static 'chatbot/chatbot.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+  </body>
 </html>
