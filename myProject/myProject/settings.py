@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +40,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["farmdepo.onrender.com"]
 
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('postgresql://farmdepo_database_user:hLDV8yV39oHiEW4O1qY4X4V6JtJxCY8S@dpg-ct7fag1u0jms73dqa1l0-a/farmdepo_databaseL', 'sqlite:///db.sqlite3')
+    )
+}
 
 # Application definition
 
