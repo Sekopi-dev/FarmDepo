@@ -17,7 +17,7 @@ urlpatterns = [
     
     path('search', views.search, name="search"),
 
-    path('chatbot_response', views.chatbot_response, name='chatbot_response'),
+
     
 
     path('cart/', include('cart.urls')),

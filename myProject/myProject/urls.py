@@ -8,7 +8,5 @@ urlpatterns = [
     path('', include("myApp.urls")),
     path('cart/', include('cart.urls')),
     path('payment/', include('payment.urls')),
-    path('chatbot/',  include('chatbot.urls')),
-    
-
+  
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

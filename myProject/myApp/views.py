@@ -132,18 +132,3 @@ def search(request):
 
 
 
-def chatbot_response(request):
-    if request.method == "POST":
-        data = request.json()
-        user_message = data.get('message')
-
-        # Send the user's message to the chatbot microservice
-        chatbot_url = "http://127.0.0.1:5000/predict"  # Adjust based on your Flask service
-        response = request.post(chatbot_url, json={'message': user_message})
-        
-        if response.status_code == 200:
-            bot_message = response.json().get('answer')
-            return JsonResponse({'answer': bot_message})
-        else:
-            return JsonResponse({'error': 'Failed to get a response from the chatbot'}, status=500)
-    return JsonResponse({'error': 'Invalid request'}, status=400)

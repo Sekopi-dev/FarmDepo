@@ -40,13 +40,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["farmdepo.onrender.com"]
 
+from decouple import config
+import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        engine='django.db.backends.postgresql'  # Add this
+        default=config('DATABASE_URL')
     )
 }
+
 
 # Application definition
 
