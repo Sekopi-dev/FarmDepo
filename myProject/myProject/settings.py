@@ -177,4 +177,4 @@ STRIPE_WEEBHOOK_SECRET = ""
 REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
 
 # For production (replace 'example.com' with your actual domain)
-REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
+REDIRECT_DOMAIN = 'https://farmdepo.onrender.com'
