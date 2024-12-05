@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myApp',
     'cart',
-    'chatbot',
     'payment',
     'compressor', #new
  
