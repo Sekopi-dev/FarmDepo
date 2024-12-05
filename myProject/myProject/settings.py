@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 import dj_database_url
 
 import os
@@ -40,6 +41,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["farmdepo.onrender.com"]
 
+
+import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
